@@ -12,4 +12,17 @@ router.get('/google/callback',
     res.redirect('/bashboard');
   });
 
+router.get('/verify',(req,res)=>{
+    console.log(req.user)
+    if(req.user){
+       
+    } else {
+    
+    }
+});
+
+router.get('/logout',(req,res)=>{
+    req.logout();
+    res.redirect('/');
+});
 module.exports = router;
