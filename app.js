@@ -3,24 +3,14 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const exphbs = require('express-handlebars');
+
 
 //Load user model
 require('./models/user');
 
 //Passport config
 require('./config/passport')(passport);
-
-//
-
-
-//Load Routes
-const auth = require('./routes/auth');
-
-//Use express app
-const app = express();
-
-
-
 
 //Load keys
 const keys = require('./config/keys');
@@ -36,12 +26,16 @@ mongoose.connect(keys.mongoURI,{
     console.log(err);
 });
 
-//GET Index page
-app.get('/',(req,res)=>{
-    res.send('This is working!');
-});
+//Use express app
+const app = express();
 
+//Handlebars Middleware
+app.engine('handlebars',exphbs({
+    defaultLayout:'main'
+}));
+app.set('view engine','handlebars');
 
+//Middleware required by passport
 app.use(cookieParser());
 app.use(session({
     secret: 'secret',
@@ -60,15 +54,19 @@ app.use((req,res,next)=>{
     next();
 });
 
+//Load Routes
+const auth = require('./routes/auth');
+const index = require('./routes/index');
 
 
 //User Routers
+app.use('/',index);
 app.use('/auth',auth);
 
-
-
+//Heroku port or 5000
 const port = process.env.PORT || 5000;
 
+//App port listen
 app.listen(port, ()=>{
     console.log(`Server started on port ${port}`);
 });
