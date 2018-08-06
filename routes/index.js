@@ -8,7 +8,7 @@ router.get('/',(req,res)=>{
 
 //GET Dashbord page
 router.get('/dashboard',(req,res)=>{
-    res.send('Here you go');
+    res.render('index/dashboard');
 });
 
 

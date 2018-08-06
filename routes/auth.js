@@ -8,18 +8,10 @@ router.get('/google', passport.authenticate('google',
 router.get('/google/callback', 
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res)=> {
-    // Successful authentication, redirect user dashboard.
-    res.redirect('/bashboard');
+    // Successful authentication, redirect to user dashboard.
+    res.redirect('/dashboard');
   });
 
-router.get('/verify',(req,res)=>{
-    console.log(req.user)
-    if(req.user){
-       
-    } else {
-    
-    }
-});
 
 router.get('/logout',(req,res)=>{
     req.logout();

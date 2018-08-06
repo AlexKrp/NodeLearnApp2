@@ -57,11 +57,15 @@ app.use((req,res,next)=>{
 //Load Routes
 const auth = require('./routes/auth');
 const index = require('./routes/index');
+const stories = require('./routes/stories');
+
+
 
 
 //User Routers
 app.use('/',index);
 app.use('/auth',auth);
+app.use('/stories',stories);
 
 //Heroku port or 5000
 const port = process.env.PORT || 5000;
