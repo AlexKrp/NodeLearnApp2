@@ -16,5 +16,13 @@
     "mongoose": "^5.2.6",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexKrp/NodeLearnApp2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexKrp/NodeLearnApp2/issues"
+  },
+  "homepage": "https://github.com/AlexKrp/NodeLearnApp2#readme"
 }

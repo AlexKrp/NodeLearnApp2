@@ -4,6 +4,7 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const path = require('path');
 
 
 //Load user model
@@ -53,6 +54,9 @@ app.use((req,res,next)=>{
     res.locals.user = req.user || null;
     next();
 });
+
+//Set Static folder
+app.use(express.static(path.join(__dirname,'public')));
 
 //Load Routes
 const auth = require('./routes/auth');
