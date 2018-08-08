@@ -18,6 +18,8 @@ require('./config/passport')(passport);
 //Load keys
 const keys = require('./config/keys');
 
+
+
 //Mongoose connct
 mongoose.connect(keys.mongoURI,{
     useNewUrlParser: true
@@ -36,8 +38,20 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//Handlebars Helpers
+const {
+    truncate,
+    stripTags,
+    formatDate
+} = require('./helpers/hbs');
+
 //Handlebars Middleware
 app.engine('handlebars',exphbs({
+    helpers: {
+       truncate: truncate,
+       stripTags: stripTags,
+       formatDate: formatDate 
+    },
     defaultLayout:'main'
 }));
 app.set('view engine','handlebars');

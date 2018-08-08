@@ -13,7 +13,6 @@ router.get('/',(req,res)=>{
     Story.find({status:'public'})
     .populate('user')
     .then(stories => {
-        console.log(stories);
         res.render('stories/index',{
             stories: stories
         });
@@ -54,6 +53,19 @@ router.post('/',ensureAuth,(req,res)=>{
 
 });
 
+//Show Single story
+router.get('/show/:id',(req,res) => {
+    Story.findOne({
+        _id: req.params.id
+    })
+    .populate('user')
+    .then(story => {
+        res.render('stories/show', {
+            story: story
+        });
+    })
+    .catch(err => console.log(err));
+});
 
 
 module.exports = router;
