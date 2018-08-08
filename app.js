@@ -8,8 +8,9 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 
-//Load user model
+//Load user and story model
 require('./models/user');
+require('./models/story');
 
 //Passport config
 require('./config/passport')(passport);
