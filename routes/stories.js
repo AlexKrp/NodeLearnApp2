@@ -11,7 +11,12 @@ router.get('/',(req,res)=>{
 
 // Add story from
 router.get('/add',ensureAuth,(req,res)=>{
-    res.render('stories/add');
+    
+});
+
+//Add post
+router.post('/',ensureAuth,(req,res)=>{
+    
 });
 
 
