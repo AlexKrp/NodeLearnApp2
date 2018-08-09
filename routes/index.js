@@ -16,7 +16,6 @@ router.get('/dashboard',ensureAuth,(req,res)=>{
         user: req.user.id
     })
     .then(stories => {
-        console.log(stories);
         res.render('index/dashboard',{
             stories: stories
         });

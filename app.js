@@ -6,6 +6,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const path = require('path');
+const methodOverride = require('method-override');
 
 
 //Load user and story model
@@ -38,11 +39,15 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//Method Override Middleware
+app.use(methodOverride('_method'));
+
 //Handlebars Helpers
 const {
     truncate,
     stripTags,
-    formatDate
+    formatDate,
+    select
 } = require('./helpers/hbs');
 
 //Handlebars Middleware
@@ -50,7 +55,8 @@ app.engine('handlebars',exphbs({
     helpers: {
        truncate: truncate,
        stripTags: stripTags,
-       formatDate: formatDate 
+       formatDate: formatDate,
+       select: select 
     },
     defaultLayout:'main'
 }));
