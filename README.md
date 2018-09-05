@@ -4,5 +4,5 @@
   1. Post your stoty and make it public or private
   2. See public stories by others
   3. Comment public stories
-## You can see the app on [Heroku] (https://boiling-bayou-67412.herokuapp.com/)
+## You can see the app on [Heroku](https://boiling-bayou-67412.herokuapp.com/)
 
