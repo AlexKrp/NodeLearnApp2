@@ -1,5 +1,5 @@
 ## NodeLearnApp2
-#This is Nodejs application from udemy nodejs course
+#This is Nodejs application from the Udemy Nodejs course.
 
-#You can see tha app on Heroku (https://boiling-bayou-67412.herokuapp.com/)
+#You can see the app on Heroku (https://boiling-bayou-67412.herokuapp.com/)
 
